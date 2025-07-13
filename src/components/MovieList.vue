@@ -4,6 +4,7 @@
     </div>
 </template>
 
+
 <script setup>
 import MovieCard from './MovieCard.vue';
 
