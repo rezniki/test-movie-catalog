@@ -3,8 +3,8 @@
         <div class="logo">📽 MOOZ</div>
         <input v-model="searchQuery" @input="debouncedSearch" placeholder="Search..." class="search-input" />
         <div class="user">
-        <span>Your Name</span>
         <div class="user-icon">👤</div>
+        <span>Your Name</span>
         </div>
     </header>
 </template>
@@ -33,7 +33,7 @@ const debouncedSearch = debounce(() => {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     color: #1e90ff;
 }
