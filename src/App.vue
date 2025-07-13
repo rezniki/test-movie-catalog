@@ -37,7 +37,7 @@ const fetchMovies = async () => {
   error.value = '';
   try {
     const response = await fetch(
-      `https://cors-anywhere.herokuapp.com/https://www.omdbapi.com/?apikey=8523cbb8&s=${encodeURIComponent(searchQuery.value)}&page=${currentPage.value}`
+      `https://www.omdbapi.com/?apikey=8523cbb8&s=${encodeURIComponent(searchQuery.value)}&page=${currentPage.value}`
     );
     const data = await response.json();
     console.log('API Response:', data); // Для отладки
