@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <div class="logo">📽 MOOZ</div>
-        <input v-model="searchQuery" @input="search" placeholder="Search..." class="search-input" />
+        <input v-model="searchQuery" @input="debouncedSearch" placeholder="Search..." class="search-input" />
         <div class="user">
         <span>Your Name</span>
         <div class="user-icon">👤</div>
@@ -11,16 +11,15 @@
 
 <script setup>
 import { ref } from 'vue';
+import { debounce } from 'lodash';
 
 const searchQuery = ref('');
 const emit = defineEmits(['search']);
 
-const search = () => {
-    const app = getCurrentInstance().appContext.app.config.globalProperties;
-    app.searchQuery = searchQuery.value;
-    app.currentPage = 1;
-    emit('search');
-};
+// Debounce поиск, чтобы избежать частых запросов
+const debouncedSearch = debounce(() => {
+    emit('search', searchQuery.value);
+}, 500);
 </script>
 
 <style scoped>
